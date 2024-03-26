@@ -27,21 +27,31 @@
 
 ### A short main example how to callit in a c file
 
-    #include "get_next_line.h"
     int main(void) {
       int fd;
       char *line;
-  
+
       fd = open("example.txt", O_RDONLY);
-      while (get_next_line(fd, &line)) {
-          printf("%s\n", line);
+      line = get_next_line(fd);
+      while (line) {
+          printf("%s", line);
           free(line);
+          line = get_next_line(fd);
       }
       close(fd);
-  
-      return (0);
-  }
 
+      return (0);
+    }
+
+## compilation
+  
+  Without buffer size which will be by default 42 defined in the header file:
+
+    cc -Wall -Wextra -Werror get_next_line.c get_next_line_utils.c main.c get_next_line.h
+  
+  With buffer size that you want:
+  
+    get_next_line.c get_next_line_utils.c main.c -D BUFFER_SIZE=<size>
 
 ## Parameters
 

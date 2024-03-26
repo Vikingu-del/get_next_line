@@ -1,0 +1,4 @@
+Hello,
+I'm Erik, a passionate software eng. and im trying to kind of imitate the readline
+with this function. Try with different cases, with this file being null or with different buffer size
+Cheers :D

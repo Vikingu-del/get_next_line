@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   get_next_line.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: eseferi <eseferi@student.42wolfsburg.de    +#+  +:+       +#+        */
+/*   By: eseferi <eseferi@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/27 13:55:43 by eseferi           #+#    #+#             */
-/*   Updated: 2023/06/27 16:26:16 by eseferi          ###   ########.fr       */
+/*   Updated: 2024/04/09 19:30:34 by eseferi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -55,11 +55,11 @@ char	*ft_next_buffer(char *str_static)
 		i++;
 	if (!str_static[i])
 		return (free(str_static), NULL);
-	line = (char *)malloc(sizeof(char) * (ft_strlen(str_static) - i + 1));
+	line = (char *)malloc(sizeof(char) * (get_ft_strlen(str_static) - i + 1));
 	if (!line)
 		return (free(str_static), NULL);
 	i++;
-	ft_strcpy(line, &str_static[i]);
+	get_ft_strcpy(line, &str_static[i]);
 	return (free(str_static), line);
 }
 /*
@@ -85,7 +85,7 @@ char	*ft_read_buffer(int fd, char *str_static)
 		if (buflen == -1)
 			return (free(buffer), free(str_static), NULL);
 		buffer[buflen] = '\0';
-		str_static = ft_strjoin(str_static, buffer);
+		str_static = get_ft_strjoin(str_static, buffer);
 	}
 	return (free(buffer), str_static);
 }

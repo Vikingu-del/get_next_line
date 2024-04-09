@@ -3,16 +3,16 @@
 /*                                                        :::      ::::::::   */
 /*   get_next_line_utils_bonus.c                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: eseferi <eseferi@student.42wolfsburg.de    +#+  +:+       +#+        */
+/*   By: eseferi <eseferi@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/27 13:55:32 by eseferi           #+#    #+#             */
-/*   Updated: 2023/06/27 15:41:08 by eseferi          ###   ########.fr       */
+/*   Updated: 2024/04/09 19:31:48 by eseferi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "get_next_line_bonus.h"
 
-size_t	ft_strlen(char *s)
+size_t	get_ft_strlen(char *s)
 {
 	size_t	counter;
 
@@ -22,12 +22,12 @@ size_t	ft_strlen(char *s)
 	return (counter);
 }
 
-char	*ft_strchr(char *s, int c)
+char	*get_ft_strchr(char *s, int c)
 {
 	if (!s)
 		return (0);
 	if (c == '\0')
-		return ((char *)&s[ft_strlen(s)]);
+		return ((char *)&s[get_ft_strlen(s)]);
 	while (*s != '\0')
 	{
 		if (*s == (char)c)
@@ -41,7 +41,7 @@ char	*ft_strchr(char *s, int c)
 	the string, which is 1
 */
 
-char	*ft_strcpy(char *dest, char *src)
+char	*get_ft_strcpy(char *dest, char *src)
 {
 	int	i;
 
@@ -55,7 +55,7 @@ char	*ft_strcpy(char *dest, char *src)
 	return (dest);
 }
 
-char	*ft_strjoin(char *str_static, char *buffer)
+char	*get_ft_strjoin(char *str_static, char *buffer)
 {
 	unsigned int	len;
 	char			*str;
@@ -67,13 +67,13 @@ char	*ft_strjoin(char *str_static, char *buffer)
 	}
 	if (!str_static || !buffer)
 		return (0);
-	len = ft_strlen(str_static) + ft_strlen(buffer);
+	len = get_ft_strlen(str_static) + get_ft_strlen(buffer);
 	str = (char *)malloc(sizeof(char) * len + 1);
 	if (!str)
 		return (0);
-	ft_strcpy(str, str_static);
-	len = ft_strlen(str_static);
-	ft_strcpy(&str[len], buffer);
+	get_ft_strcpy(str, str_static);
+	len = get_ft_strlen(str_static);
+	get_ft_strcpy(&str[len], buffer);
 	return (free(str_static), str);
 }
 /*

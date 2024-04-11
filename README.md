@@ -7,6 +7,8 @@
   in C programming. GNL allows users to read content from various file descriptors such as standard input, files, or 
   even network sockets.
 
+For more check the [subject](subject.pdf)
+
 ## Features
 
   Reads a line from a given file descriptor
